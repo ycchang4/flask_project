@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>All posts</title>
+{% endblock %}
+
+<!-- <hr>
+<h2>Create New Comment:</h2>
+<form action = '/posts' method='POST'>
+    Title: <input type = 'text', name='title', id = 'title'>
+    <br>
+    Post: <input type ='text' name='content' id='content'>
+    <br>
+    <input type='submit' value='Post'>
+</form>
+<hr> -->
+
+{% block body %} 
+<h1>ALL COMMENTS</h1>
+
+<hr>
+<h2>Create New Comment:</h2>
+<form action = '/post' method='POST'>
+    Title: <input type = 'text', name='title', id = 'title'>
+    <br>
+    Post: <input type ='text' name='content' id='content'>
+    <br>
+    Author: <input type ='text' name='author' id='author'>
+    <br>
+    <input type='submit' value='Post'>
+</form>
+<hr>
+
+    {% for post in posts %}
+        <h1>Title: {{post.title}}</h1>
+        
+        {% if post.author %}    
+            <small>Written By : {{post.author}}</small>
+        {% else %}
+            <p>Written By: Unknown</p>
+        {% endif %}
+    <p>Content: {{ post.content }}</p>
+    <p>id : {{post.id}}</p>
+    <br>
+<a class="btn btn-danger" href = '/post/delete/{{post.id}}'>Delete</a>
+<hr>
+{% endfor %}
+{% endblock %}

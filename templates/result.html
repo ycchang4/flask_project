@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Result</title>
+{% endblock %}
+
+{% block body %} 
+
+
+{% for res in r %}
+<h1>Course Code: {{res.CourseCode}}</h1>
+<p>Instructor: {{ res.Instructor }}</p>
+<p>GPA : {{res.avg_gpa}}</p>
+<hr>
+{% endfor %}
+{% endblock %}

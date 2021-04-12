@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Top 15 Classes</title>
+{% endblock %}
+
+{% block body %} 
+<h1>Top 15</h1>
+{% for class in topClasses %}
+<h1>Course Code: {{class.CourseCode}}</h1>
+
+
+{% if class.avgGPA %}    
+<p>Average GPA : {{class.avgGPA}}</p>
+{% else %}
+     <p>Average GPA: N/A</p>
+{% endif %}
+
+<p>Instructor: {{ class.Instructor }}</p>
+<hr>
+{% endfor %}
+{% endblock %}

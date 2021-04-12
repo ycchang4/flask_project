@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>All Courses</title>
+{% endblock %}
+
+
+{% block body %} 
+
+
+<br>
+<h2>Create New Course:</h2>
+<form action = '/courses' method='POST'>
+    Year Term: 
+    <input class="form-control" type = 'text', name='yearTerm', id = 'yearTerm', type="text" placeholder="ex. fa19" aria-label="ex. fa19">
+    <br>
+    Subject: 
+    <input class="form-control" type = 'text', name='subject' id='subject', type="text" placeholder="ex. cs" aria-label="cs">
+    <br>
+    CRN: 
+    <input class="form-control" type ='text' name='crn' id='crn' placeholder="ex. 125" aria-label="ex. 125">
+    <br>
+    Course Code: 
+    <input class="form-control" type ='text' name='courseCode' id='courseCode' placeholder="ex. CS125" aria-label="ex. CS125">
+    <br>
+    Course Title: 
+    <input class="form-control" type ='text' name='CourseTitle' id='CourseTitle' placeholder="ex. Database Management" aria-label="ex. Database Management">
+    <br>
+    Instructor: 
+    <input class="form-control" type ='text' name='Instructor' id='Instructor' placeholder="ex. David Goodwin" aria-label="ex. David Goodwin">
+    <br>
+    Average GPA: 
+    <input class="form-control" type ='text' name='AverageGPA' id='AverageGPA' placeholder="ex. 3.9" aria-label="ex. 3.9">
+    <br>
+    <input type='submit' value='Post'>
+</form>
+<hr>
+<h1>Top 10 Courses</h1>
+    {% for course in courses %}
+    <h1>Course Code: {{course.CourseCode}}</h1>
+
+
+    {% if course.AverageGPA %}    
+    <p>Average GPA : {{course.AverageGPA}}</p>
+    {% else %}
+         <p>Average GPA: N/A</p>
+    {% endif %}
+    
+    <p>Instructor: {{ course.Instructor }}</p>
+    <a class="btn btn-outline-warning" href = '/courses/delete/{{course.CourseCode}}'>Delete</a>
+    <a class="btn btn-outline-secondary" href = '/courses/edit/{{course.CourseCode}}'>Edit</a>
+    <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Edit Course</title>
+{% endblock %}
+
+{% block body %} 
+<h1>Edit Course</h1>
+
+<hr>
+<h2>Edit {{code}}</h2>
+<form action = '/courses/edit/{{code}}' method='POST'>
+    Year Term: 
+    <input class="form-control" type = 'text', name='yearTerm', id = 'yearTerm', type="text" placeholder="ex. fa19" aria-label="ex. fa19">
+    <br>
+    Subject: 
+    <input class="form-control" type = 'text', name='subject' id='subject', type="text" placeholder="ex. cs" aria-label="cs">
+    <br>
+    CRN: 
+    <input class="form-control" type ='text' name='crn' id='crn' placeholder="ex. 125" aria-label="ex. 125">
+    <br>
+    Course Title: 
+    <input class="form-control" type ='text' name='CourseTitle' id='CourseTitle' placeholder="ex. Database Management" aria-label="ex. Database Management">
+    <br>
+    Instructor: 
+    <input class="form-control" type ='text' name='Instructor' id='Instructor' placeholder="ex. David Goodwin" aria-label="ex. David Goodwin">
+    <br>
+    Average GPA: 
+    <input class="form-control" type ='text' name='AverageGPA' id='AverageGPA' placeholder="ex. 3.9" aria-label="ex. 3.9">
+    <br>
+    <input type='submit' value='Save'>
+</form>
+<hr>
+{% endblock %}

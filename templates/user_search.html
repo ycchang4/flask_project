@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Search</title>
+{% endblock %}
+
+{% block body %} 
+<hr>
+<h2>Choose A Class</h2>
+<form action = '/search' method='POST'>
+    
+    CRN: 
+    <input class="form-control" type = 'text', name = 'crn', id = 'crn', placeholder="ex. 125" aria-label="ex. 125">
+    <br>
+    <input type='submit' value='Submit'>
+</form>
+<hr>
+
+
+<!-- {% for res in r %}
+<h1>Course Code: {{res.CourseCode}}</h1>
+<p>Instructor: {{ res.Instructor }}</p>
+<p>GPA : {{res.avgGPA}}</p>
+<hr>
+{% endfor %} -->
+{% endblock %}
